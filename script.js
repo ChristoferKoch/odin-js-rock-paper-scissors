@@ -13,9 +13,15 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    let win = "You win! " + playerSelection + " beats " + computerSelection + "!";
-    let lose = "You lose! " + playerSelection + " beats " + computerSelection + "!";
+    let firstLetter = playerSelection.charAt(0).toUpperCase(); // First letter uppercase
+    let rest = playerSelection.slice(1).toLowerCase(); // Rest of string lowercase
 
+    playerSelection = firstLetter + rest; // Make playerSelection the same for comparisons
+
+    let win = "You win! " + playerSelection + " beats " + computerSelection + "!";
+    let lose = "You lose! " + computerSelection + " beats " + playerSelection + "!";
+
+    // Basic comparisons to determine the winner
     if (playerSelection === computerSelection) {
         return "Draw!";
     } else {
@@ -41,7 +47,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const playerSelection = "Rock";
+const playerSelection = "rock";
 const computerSelection = getComputerChoice();
 
 console.log(playRound(playerSelection,computerSelection));
