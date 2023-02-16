@@ -65,7 +65,7 @@ function game() {
         } else if (result.charAt(4) === "w") {
             playerScore += 1; // The charAt(4) can only be a 'w' if the player won
         } else {
-            computerScore += 2;
+            computerScore += 1;
         }
 
         // Print results
