@@ -47,7 +47,39 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
+function game() {
+    // Initialize score
+    let computerScore = 0;
+    let playerScore = 0;
 
-console.log(playRound(playerSelection,computerSelection));
+    for (let i = 0; i < 5; i++) {
+        // Initialize choices and get result
+        let computerSelection = getComputerChoice();
+        let playerSelection = prompt("Rock, paper, scissors shoot!");
+        let result = playRound(playerSelection,computerSelection);
+
+        // Update score
+        if (result === "Draw!") {
+            computerScore += .5;
+            playerScore += .5;
+        } else if (result.charAt(4) === "w") {
+            playerScore += 1; // The charAt(4) can only be a 'w' if the player won
+        } else {
+            computerScore += 2;
+        }
+
+        // Print results
+        console.log(result, "Player: " + playerScore, "Computer: " + computerScore);
+    }
+
+    // Declare winner
+    if (playerScore > computerScore) {
+        console.log("You beat the computer! Congradulations!");
+    } else if (playerScore < computerScore) {
+        console.log("Oh no! The computer won.");
+    } else {
+        console.log("It's a draw. Boo.");
+    }
+}
+
+game();
