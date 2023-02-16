@@ -1,3 +1,3 @@
 # odin-js-tic-tac-toe
 
-Basic tic tac toe game.
+Basic Rock Paper Scissors game.
